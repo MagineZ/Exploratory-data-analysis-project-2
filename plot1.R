@@ -1,0 +1,7 @@
+setwd("./Exploratory-data-analysis-project-2")
+NEI <- readRDS("summarySCC_PM25.rds")
+SCC <- readRDS("Source_Classification_Code.rds")
+PM25total <- aggregate(Emissions ~ year, NEI, sum)
+png('plot1.png')
+barplot(PM25total$Emission, xlab="years", ylab=expression('total PM'[2.5]*' emission'),main=expression('Total PM'[2.5]*' emissions at various years'))
+dev.off() 
